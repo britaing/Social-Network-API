@@ -1,19 +1,7 @@
-const { Schema, Types } = require("mongoose");
+const { connect, connection } = require('mongoose');
 
-const user = new Schema({
-  username: {
-    type: "string",
-    unique: true,
-    required: true,
-    trim: [true, "A username is required"],
-  },
-  email: {
-    type: "string",
-    unique: true,
-    required: [true, "Please enter an email address"],
-    validate: {
-      validator: () => Promise.resolve(false),
-      message: "Email validation failed",
-    },
-  },
-});
+const connectionString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialnetworkDB';
+
+connect(connectionString);
+
+module.exports = connection;
