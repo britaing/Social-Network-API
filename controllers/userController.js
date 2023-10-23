@@ -9,7 +9,7 @@ module.exports = {
         res.status(500).json(err); 
       }
     },
-    async getSingleUser(req, res) {
+    async getUserById(req, res) {
       try {
         const user = await User.findOne({ _id: req.params.userId })
           .select('-__v');
