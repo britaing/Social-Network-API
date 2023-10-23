@@ -10,7 +10,6 @@ const thoughtSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    //check on getter criteria
   },
   username: {
     type: "string",
